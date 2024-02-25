@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Places Finder</title>
+</head>
+<body>
+<h1>Nearby Places Finder</h1>
+<form id="searchForm">
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" name="longitude"><br><br>
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" name="latitude"><br><br>
+    <label for="radius">Radius:</label>
+    <input type="text" id="radius" name="radius"><br><br>
+    <button type="button" onclick="searchPlaces()">Search</button>
+</form>
+<div id="placesList"></div>
+
+<script>
+    function searchPlaces() {
+        var longitude = document.getElementById("longitude").value;
+        var latitude = document.getElementById("latitude").value;
+        var radius = document.getElementById("radius").value;
+
+        fetch("http://localhost:8070/api/places?longitude=" + longitude + "&latitude=" + latitude + "&radius=" + radius)
+            .then(response => response.json())
+            .then(data => {
+                var placesList = document.getElementById("placesList");
+                placesList.innerHTML = "<h2>Nearby Places:</h2>";
+                data.forEach(place => {
+                    var placeItem = document.createElement("div");
+                    placeItem.textContent = "Name: " + place.name + ", Address: " + place.address;
+                    placesList.appendChild(placeItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>
+</body>
+</html>
