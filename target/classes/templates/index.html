@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Places Finder</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+
+</head>
+<body>
+<h1>Nearby Places Finder</h1>
+<div>
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" name="longitude"><br><br>
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" name="latitude"><br><br>
+    <label for="radius">Radius:</label>
+    <input type="text" id="radius" name="radius"><br><br>
+    <button type="button" id="searchButton">Search Places</button>
+</div>
+<div id="map"></div>
+<div id="placesList"></div>
+<div id="placesInfo"></div>
+
+<script src="../static/js/index.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=${google.places.api.key}&callback=initMap"
+        async defer></script>
+</body>
+</html>
