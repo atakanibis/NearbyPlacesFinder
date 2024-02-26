@@ -8,6 +8,18 @@ function initMap() {
     });
 }
 
+// load google maps api function
+function loadGoogleMaps() {
+    const googleApiKey = window.googleApiKey;
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+}
+
+window.onload = loadGoogleMaps;
+
 document.getElementById("searchButton").addEventListener("click", searchPlaces);
 
 function searchPlaces() {

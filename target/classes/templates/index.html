@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nearby Places Finder</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 
 </head>
 <body>
@@ -22,8 +22,11 @@
 <div id="placesList"></div>
 <div id="placesInfo"></div>
 
-<script src="../static/js/index.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=${google.places.api.key}&callback=initMap"
-        async defer></script>
+<script>
+    window.googleApiKey = "[[${googleApiKey}]]";
+</script>
+
+<script src="/js/index.js"></script>
+
 </body>
 </html>

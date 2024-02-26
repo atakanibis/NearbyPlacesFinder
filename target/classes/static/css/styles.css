@@ -9,7 +9,7 @@ h1 {
     text-align: center;
 }
 
-/* Form stilleri */
+
 label {
     display: block;
     margin-bottom: 5px;
@@ -41,7 +41,6 @@ button:active {
     transform: translateY(3px);
 }
 
-/* Harita ve listeleme stilleri */
 #map {
     height: 400px;
     width: 100%;
